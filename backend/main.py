@@ -4,7 +4,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-app = FastAPI(title="Todo API")
+from calculator import router as calculator_router
+
+app = FastAPI(title="Todo & Calculator API")
+app.include_router(calculator_router)
 
 app.add_middleware(
     CORSMiddleware,
